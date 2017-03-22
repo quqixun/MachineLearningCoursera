@@ -26,13 +26,13 @@ def read_mat(path):
 
 
 def sigmoid(z):
-	# The sigmoid function
+    # The sigmoid function
     return 1 / (1 + np.exp(-z))
 
 
 def cost(theta, X, y, ld=1):
-	# Compute the cost function
-	# Convert theta to a vector
+    # Compute the cost function
+    # Convert theta to a vector
     theta = np.asmatrix(theta)
     theta = theta.reshape([X.shape[1], 1])
 
@@ -45,8 +45,8 @@ def cost(theta, X, y, ld=1):
 
 
 def gradient(theta, X, y, ld=1):
-	# Compute the gradient in each iteration
-	# Convert theta to a vector
+    # Compute the gradient in each iteration
+    # Convert theta to a vector
     theta = np.asmatrix(theta)
     theta = theta.reshape([X.shape[1], 1])
 
@@ -58,9 +58,9 @@ def gradient(theta, X, y, ld=1):
 
 
 def oneVsAll(X, y, num, ld=1):
-	# Compute parameters for each class
-	# Get the number of columns of feature matrix,
-	# i.e. the number of features
+    # Compute parameters for each class
+    # Get the number of columns of feature matrix,
+    # i.e. the number of features
     n = X.shape[1]
 
     # Initialize all parameters
@@ -92,15 +92,15 @@ def oneVsAll(X, y, num, ld=1):
 
 
 def predictOneVsAll(theta, X):
-	# Use sigmoid function as the linear classifier
-	# to do the prediction
-	# The output of sigmoid function has the same
-	# number of columns as the classes of data
-	# For instance, the output pp may look like as:
-	# 0.05 0 0 0 0 0.1 0.05 0.8 0 0
-	# In this case, the biggest probability locates at
-	# 8th column, which means this data is regarded as
-	# the data in 8th class
+    # Use sigmoid function as the linear classifier
+    # to do the prediction
+    # The output of sigmoid function has the same
+    # number of columns as the classes of data
+    # For instance, the output pp may look like as:
+    # 0.05 0 0 0 0 0.1 0.05 0.8 0 0
+    # In this case, the biggest probability locates at
+    # 8th column, which means this data is regarded as
+    # the data in 8th class
     pp = sigmoid(X.dot(theta.T))
     p = np.argmax(pp, axis=1) + 1
 
@@ -108,7 +108,7 @@ def predictOneVsAll(theta, X):
 
 
 if __name__ == '__main__':
-	# Read data form .mat file
+    # Read data form .mat file
     path = os.getcwd() + '/ex3data1.mat'
     X, y = read_mat(path)
 
